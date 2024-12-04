@@ -10,9 +10,10 @@ def part1(data):
 		re.MULTILINE)
 	return len(hits)
 
+
 def part2(data):
 	hits = re.findall(r"(?=^.*(.).\1.*$).*(..).*\2.*", data,
-		re.MULTILINE)
+	                  re.MULTILINE)
 	return len(hits)
 
 
