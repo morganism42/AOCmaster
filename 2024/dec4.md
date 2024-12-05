@@ -34,3 +34,5 @@ if letter == 'X':
 			pass
 ```
 ###### I like this method a lot, its much simpler and easier to understand at a glance in my opinin, also I commited a little bit of a code crime by using a try except block to catch out of bounds errors, but in Advent of Code there is an element of speed involved to try and get in the top 100, not that I've even breached the top 1000 yet.
+
+###### Anyways thanks for reading this, I'd say you can find me at ... but I don't actually have any social media platforms to find me on, and I'm not putting my discord account here where it can be scraped, not that I probably haven't done that inside some discord bot that I have message me when it generates errors.

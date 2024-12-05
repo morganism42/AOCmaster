@@ -25,28 +25,8 @@ def solve1(test=True):
 		print("Test failed")
 	elif not test:
 		print(result)
-        submit(result, part="a", day=X, year={year})
-    
+        submit(result, part="a", day={day}, year={year})
 
-def solve2(test=True):
-    # Your solution code here
-    testdata = \'\'\'\'\'\'
-    testans = \'\'
-    if test:
-		data = testdata
-	else:
-		data = get_data(day={day}, year={year})
-    
-    
-    
-    
-    
-    if test and result == testans:
-    	print("Test passed")
-    elif test and result != testans:
-		print("Test failed")
-    elif not test:
-		print(result)
-        submit(result, part="a", day=X, year={year})''')
+''')
 		f.close()
 		print(f"Created {filepath}")

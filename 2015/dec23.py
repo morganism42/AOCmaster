@@ -19,26 +19,5 @@ def solve1(test=True):
 		print("Test failed")
 	elif not test:
 		print(result)
-        submit(result, part="a", day=X, year=2015)
-    
+        submit(result, part="a", day=23, year=2015)
 
-def solve2(test=True):
-    # Your solution code here
-    testdata = ''''''
-    testans = ''
-    if test:
-		data = testdata
-	else:
-		data = get_data(day=23, year=2015)
-    
-    
-    
-    
-    
-    if test and result == testans:
-    	print("Test passed")
-    elif test and result != testans:
-		print("Test failed")
-    elif not test:
-		print(result)
-        submit(result, part="a", day=X, year=2015)
