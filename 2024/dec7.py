@@ -94,4 +94,3 @@ def solve2(test=True):
 	elif not test:
 		print(result)
 		submit(result, part="b", day=7, year=2024)
-solve2(False)
