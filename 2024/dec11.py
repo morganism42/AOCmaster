@@ -1,7 +1,12 @@
+from turtledemo.penrose import start
+
 from aocd import get_data, submit
 from collections import defaultdict
+from tqdm import tqdm
+import time
 
-def solve1(test=True):
+
+def solve1(test=True, q=25):
 	# Your solution code here
 	testdata = '''125 17'''
 	testans = 55312
@@ -11,7 +16,7 @@ def solve1(test=True):
 		data = get_data(day=11, year=2024)
 	data = [int(stone) for stone in data.split(' ')]
 	stones = data
-	for i in range(25):
+	for i in tqdm(range(q)):
 		newstones = []
 		for stone in stones:
 			if stone == 0:
@@ -43,7 +48,7 @@ def solve2(test=True):
 		data = get_data(day=11, year=2024)
 	data = {stone: 1 for stone in data.split(' ')}
 	stones = data
-	for i in range(75):
+	for i in tqdm(range(75)):
 		newstones = defaultdict(int)
 		for stone in stones.keys():
 			if int(stone) == 0:
@@ -66,3 +71,9 @@ def solve2(test=True):
 		print(result)
 		submit(result, part="b", day=11, year=2024)
 
+
+start = time.time()
+solve1(test=False, q=75)
+with open('brute_force.txt', 'w') as f:
+	f.write(f'{time.time() - start} seconds to completion')
+print("Brute force time:", time.time() - start)
