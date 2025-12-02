@@ -31,13 +31,18 @@ def part1(Data):
 def part2(Data):
 	Data = parse(Data)
 	invalids = 0
+	factors = {}
 	for region in Data:
 		for n in range(region[0], region[1] + 1):
 			size = len(str(n))
-			sizes = []
-			for i in range(1,size):
-				if size % i == 0:
-					sizes.append(i)
+			if size not in factors.keys():
+				sizes = []
+				for i in range(1, size):
+					if size % i == 0:
+						sizes.append(i)
+				factors[size] = sizes
+			else:
+				sizes = factors[size]
 			text = str(n)
 			for x in sizes:
 				indx = x
@@ -48,7 +53,6 @@ def part2(Data):
 					indx += x
 				else:
 					invalids += n
-					print(n)
 					break
 	print(invalids)
 
