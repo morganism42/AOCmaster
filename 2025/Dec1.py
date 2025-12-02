@@ -58,4 +58,3 @@ def P2(code):
 		if pointer == 0:
 			ans += 1
 	print(ans)
-
