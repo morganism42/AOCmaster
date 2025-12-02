@@ -58,3 +58,26 @@ def P2(code):
 		if pointer == 0:
 			ans += 1
 	print(ans)
+
+def manual(code):
+	pointer = 50
+	ans = 0
+	for rot in code:
+		turn = [rot[0], int(rot[1:])]
+
+		if turn[0] == 'L':
+			for i in range(int(turn[1])):
+				pointer -= 1
+				if pointer < 0:
+					pointer = 99
+				if pointer == 0:
+					ans += 1
+		else:
+			for i in range(int(turn[1])):
+				pointer += 1
+				if pointer > 99:
+					pointer = 0
+				if pointer == 0:
+					ans += 1
+	print(ans)
+manual(data)
