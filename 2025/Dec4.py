@@ -44,12 +44,21 @@ def part1(Data):
 def part2(Data):
 	free = 0
 	while True:
-		newfree, frees = part1(Data)
+		newfree = 0
+		directions = ((1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1), (0, 1))
+		for x, row in enumerate(Data):
+			for y, column in enumerate(row):
+				if Data[x][y] == 1:
+					neighbours = 0
+					for dx, dy in directions:
+						if len(Data) > x + dx >= 0 and len(row) > y + dy >= 0:
+							neighbours += Data[x + dx][y + dy]
+					if neighbours < 4:
+						newfree += 1
+						Data[x][y] = 0
 		if newfree == 0:
 			break
 		free += newfree
-		for x, y in frees:
-			Data[x][y] = 0
 	print(free)
 
 
