@@ -15,11 +15,8 @@ test = '''..@@.@@@@.
 
 
 def parser(Data):
-	Data = Data.splitlines()
-	out = []
-	for row in Data:
-		out.append([1 if n == '@' else 0 for n in row])
-	return out
+	return [[1 if n == '@' else 0 for n in row] for row in Data.splitlines()]
+
 
 
 def part1(Data):
