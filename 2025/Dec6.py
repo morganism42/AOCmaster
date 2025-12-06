@@ -7,7 +7,7 @@ data = get_data(day=6, year=2025)
 test = '''123 328  51 64 
  45 64  387 23 
   6 98  215 314
-*   +   *   +'''
+*   +   *   +  '''
 
 
 def parser(Data):
@@ -56,4 +56,3 @@ def part2(Data):
 			ans += prod(numbers)
 
 	return ans
-
