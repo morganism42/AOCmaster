@@ -5,7 +5,8 @@ One of my goals for this will be to complete all AOC puzzles up to the current y
 ### years I have completed:
 - [2023](/2023)
 ### Markdown files for years after 2023:
-- [2024](/2024/2024.md)
+- [2024](2024/2024.md)
+- [2025](2025/2025.md)
 ### Years I am currently working on:
 - 2024
 - 2015
