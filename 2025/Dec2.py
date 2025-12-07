@@ -1,16 +1,12 @@
 from aocd import get_data, submit
 import time
+
 data = get_data(day=2, year=2025)
 test = '''11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124'''
 
 
 def parse(Data):
-	Data = Data.split(',')
-	out = []
-	for n in range(len(Data)):
-		n1, n2 = Data[n].split('-')
-		out.append((int(n1), int(n2)))
-	return out
+	return [[int(n.split('-')[0]), int(n.split('-')[1])] for n in Data.split(',')]
 
 
 def part1(Data):
