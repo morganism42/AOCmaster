@@ -1,4 +1,5 @@
 from aocd import get_data
+import time
 
 data = get_data(day=4, year=2025)
 
@@ -18,8 +19,8 @@ def parser(Data):
 	return [[1 if n == '@' else 0 for n in row] for row in Data.splitlines()]
 
 
-
 def part1(Data):
+	Data = parser(Data)
 	free = 0
 	frees = []
 	directions = ((1, 1), (1, 0), (1, -1), (0, -1), (-1, -1), (-1, 0), (-1, 1), (0, 1))
@@ -39,6 +40,7 @@ def part1(Data):
 
 
 def part2(Data):
+	Data = parser(Data)
 	free = 0
 	while True:
 		newfree = 0
@@ -56,8 +58,10 @@ def part2(Data):
 		if newfree == 0:
 			break
 		free += newfree
-	print(free)
+	return free
 
 
-data = parser(data)
-part2(data)
+start = time.time()
+print(part2(data))
+end = time.time()
+print(f'Time taken: {(end - start) * 1000}ms')

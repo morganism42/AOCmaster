@@ -1,6 +1,5 @@
 from aocd import get_data, submit
-from sympy import factorint
-
+import time
 data = get_data(day=2, year=2025)
 test = '''11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124'''
 
@@ -54,7 +53,10 @@ def part2(Data):
 				else:
 					invalids += n
 					break
-	print(invalids)
+	return invalids
 
 
-part2(data)
+start = time.time()
+print(part2(data))
+end = time.time()
+print(f'Time taken: {end - start}s')

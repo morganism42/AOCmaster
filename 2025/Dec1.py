@@ -1,4 +1,5 @@
 from aocd import get_data, submit
+import time
 
 Data = get_data(day=1, year=2025)
 test = '''L68
@@ -57,27 +58,10 @@ def P2(code):
 		pointer %= 100
 		if pointer == 0:
 			ans += 1
-	print(ans)
+	return ans
 
-def manual(code):
-	pointer = 50
-	ans = 0
-	for rot in code:
-		turn = [rot[0], int(rot[1:])]
 
-		if turn[0] == 'L':
-			for i in range(int(turn[1])):
-				pointer -= 1
-				if pointer < 0:
-					pointer = 99
-				if pointer == 0:
-					ans += 1
-		else:
-			for i in range(int(turn[1])):
-				pointer += 1
-				if pointer > 99:
-					pointer = 0
-				if pointer == 0:
-					ans += 1
-	print(ans)
-manual(data)
+start = time.time()
+print(P2(data))
+end = time.time()
+print(f'Time taken: {(end - start) * 1000}ms')

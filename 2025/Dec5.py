@@ -1,4 +1,5 @@
 from aocd import get_data, submit
+import time
 
 data = get_data(day=5, year=2025)
 
@@ -56,4 +57,7 @@ def part2(Data):
 	print(ans)
 
 
-part2(data)
+start = time.time()
+print(part2(data))
+end = time.time()
+print(f'Time taken: {(end - start)*1000}ms')

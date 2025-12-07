@@ -1,5 +1,6 @@
 from aocd import get_data
 from math import prod
+import time
 
 data = get_data(day=6, year=2025)
 
@@ -56,3 +57,8 @@ def part2(Data):
 			ans += prod(numbers)
 
 	return ans
+
+start = time.time()
+print(part2(data))
+end = time.time()
+print(f'Time taken: {(end - start)*1000}ms')

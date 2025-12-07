@@ -1,0 +1,59 @@
+from aocd import get_data
+from collections import defaultdict
+import time
+
+data = get_data(day=7, year=2025)
+
+test = '''.......S.......
+...............
+.......^.......
+...............
+......^.^......
+...............
+.....^.^.^.....
+...............
+....^.^...^....
+...............
+...^.^...^.^...
+...............
+..^...^.....^..
+...............
+.^.^.^.^.^...^.
+...............'''
+
+
+def part1(Data):
+	Data = [list(row) for row in Data.splitlines()]
+	lasers = [{Data[0].index('S')}]
+	ans = 0
+	for row in Data:
+		lasers.append(set())
+		for beam in lasers[-2]:
+			if row[beam] == '^':
+				ans += 1
+				lasers[-1].add(beam + 1)
+				lasers[-1].add(beam - 1)
+			else:
+				lasers[-1].add(beam)
+	return ans
+
+
+def part2(Data):
+	Data = [list(row) for row in Data.splitlines()]
+	lasers = {Data[0].index('S'): 1}
+	for row in Data[1:]:
+		newlasers = defaultdict(int)
+		for beam, amount in lasers.items():
+			if row[beam] == '^':
+				newlasers[beam + 1] += amount
+				newlasers[beam - 1] += amount
+			else:
+				newlasers[beam] += amount
+		lasers = newlasers
+	return sum([i for i in lasers.values()])
+
+
+start = time.time()
+print(part2(data))
+end = time.time()
+print(f'Time taken: {(end - start)*1000}ms')

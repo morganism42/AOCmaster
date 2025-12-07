@@ -1,5 +1,5 @@
 from aocd import get_data
-
+import time
 data = get_data(day=3, year=2025)
 
 test = '''987654321111111
@@ -33,4 +33,8 @@ def solution(Data, length):
 	print(charge)
 
 
+
+start = time.time()
 solution(data, 12)
+end = time.time()
+print(f'Time taken: {(end - start) * 1000}ms')
