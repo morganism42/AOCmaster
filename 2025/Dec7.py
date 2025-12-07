@@ -1,6 +1,7 @@
 from aocd import get_data
 from collections import defaultdict
 import time
+from tqdm import tqdm
 
 data = get_data(day=7, year=2025)
 
@@ -53,7 +54,27 @@ def part2(Data):
 	return sum([i for i in lasers.values()])
 
 
+def visualize(Data):
+	Data = [list(row) for row in Data.splitlines()]
+	lasers = [{Data[0].index('S'): 1}]
+	visual = [Data[0].copy()]
+	print(''.join(visual[-1]))
+	for row in Data[1:]:
+		lasers.append(defaultdict(int))
+		visual.append(row.copy())
+		for beam, amount in lasers[-2].items():
+			if row[beam] == '^':
+				lasers[-1][beam + 1] += amount
+				lasers[-1][beam - 1] += amount
+			else:
+				lasers[-1][beam] += amount
+		for beam in lasers[-1].keys():
+			visual[-1][beam] = '|'
+		print(''.join(visual[-1]))
+	return sum([i for i in lasers[-1].values()])
+
+
 start = time.time()
-print(part2(data))
+print(visualize(data))
 end = time.time()
-print(f'Time taken: {(end - start)*1000}ms')
+print(f'Time taken: {(end - start) * 1000}ms')
