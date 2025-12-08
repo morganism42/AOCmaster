@@ -83,7 +83,6 @@ def recursive_DFS(x, y):
 			ans += recursive_DFS(x + 1, row) + recursive_DFS(x - 1, row)
 			return ans
 	else:
-		print('ping')
 		return 1
 
 
