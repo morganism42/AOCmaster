@@ -2,6 +2,7 @@ from aocd import get_data
 from collections import defaultdict
 import time
 from tqdm import tqdm
+from functools import cache
 
 data = get_data(day=7, year=2025)
 
@@ -74,7 +75,25 @@ def visualize(Data):
 	return sum([i for i in lasers[-1].values()])
 
 
+@cache
+def recursive_DFS(x, y):
+	ans = 0
+	for row in range(y + 1, len(Data)):
+		if Data[row][x] == '^':
+			ans += recursive_DFS(x + 1, row) + recursive_DFS(x - 1, row)
+			return ans
+	else:
+		print('ping')
+		return 1
+
+
+def DFS():
+	ans = recursive_DFS(Data[0].index('S'), 0)
+	return ans
+
+
 start = time.time()
-print(visualize(data))
+Data = [list(row) for row in data.splitlines()]
+print(DFS())
 end = time.time()
 print(f'Time taken: {(end - start) * 1000}ms')
