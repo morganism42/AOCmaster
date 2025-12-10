@@ -35,9 +35,6 @@ def part1(Data):
 	return ans
 
 
-def sorfunc(a):
-	return a[0]
-
 
 def part2(Data):
 	Data = parser(Data)

@@ -75,24 +75,24 @@ def visualize(Data):
 	return sum([i for i in lasers[-1].values()])
 
 
-@cache
-def recursive_DFS(x, y):
-	ans = 0
-	for row in range(y + 1, len(Data)):
-		if Data[row][x] == '^':
-			ans += recursive_DFS(x + 1, row) + recursive_DFS(x - 1, row)
-			return ans
-	else:
-		return 1
+def DFS(Data):
+	Data = [list(row) for row in Data.splitlines()]
 
+	@cache
+	def recursive_DFS(x=Data[0].index('S'), y=0):
+		ans = 0
+		for row in range(y + 1, len(Data)):
+			if Data[row][x] == '^':
+				ans += recursive_DFS(x + 1, row) + recursive_DFS(x - 1, row)
+				return ans
+		else:
+			return 1
 
-def DFS():
-	ans = recursive_DFS(Data[0].index('S'), 0)
-	return ans
+	return recursive_DFS(Data[0].index('S'), 0)
 
 
 start = time.time()
-Data = [list(row) for row in data.splitlines()]
-print(DFS())
+
+print(DFS(data))
 end = time.time()
 print(f'Time taken: {(end - start) * 1000}ms')
