@@ -1,3 +1,5 @@
+from aocd import get_data
+
 test = '''7,1
 11,1
 11,7
@@ -6,7 +8,7 @@ test = '''7,1
 2,5
 2,3
 7,3'''
-data = '''input'''
+data = get_data(day=9, year=2025)
 
 
 def parse(Data):
